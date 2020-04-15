@@ -8,8 +8,17 @@ import java.lang.reflect.ParameterizedType
 inline fun <reified T> moshi(type: ParameterizedType? = null) =
     Moshi.Builder().add(KotlinJsonAdapterFactory()).build().adapter<T>(type ?: T::class.java)
 
+/**
+ * Helper function that creates an object of type [T] from a json string.
+ */
 actual inline fun <reified T> String.fromJson(): T? = moshi<T>().fromJson(this)
 
+/**
+ * Helper function to convert an object to a json string.
+ */
 actual inline fun <reified T> T?.toJson(): String? = moshi<T>().toJson(this)
 
+/**
+ * Get the current system time.
+ */
 actual fun currentTimeMillis() = System.currentTimeMillis()
