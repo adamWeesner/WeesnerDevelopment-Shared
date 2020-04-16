@@ -1,3 +1,5 @@
+package shared
+
 import kotlin.js.Date
 
 actual inline fun <reified T> T?.toJson(): String? = JSON.stringify(this)

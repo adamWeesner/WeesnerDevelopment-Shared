@@ -1,16 +1,26 @@
 plugins {
     kotlin("multiplatform") version "1.3.71"
+    id("maven-publish")
 }
 
 group = "com.weesnerdevelopment"
-version = "1.0.1"
+version = "1.0.2"
 
 repositories {
     mavenCentral()
 }
 
 kotlin {
-    jvm()
+    jvm {
+        val main by compilations.getting {
+            kotlinOptions {
+                // Setup the Kotlin compiler options for the 'main' compilation:
+                jvmTarget = "1.8"
+            }
+        }
+
+        compilations["test"].runtimeDependencyFiles // get the test runtime classpath
+    }
     js("nodeJs")
 
     sourceSets {
