@@ -40,6 +40,7 @@ data class User(
      * [User] with the sensitive fields set to null.
      */
     fun redacted() = User(
+        uuid = uuid,
         name = name,
         email = email,
         username = username,
