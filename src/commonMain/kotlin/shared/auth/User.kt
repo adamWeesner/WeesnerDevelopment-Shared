@@ -18,7 +18,7 @@ import shared.toJson
  * @see GenericItem.dateCreated
  * @see GenericItem.dateUpdated
  */
-class User(
+data class User(
     override var id: Int? = null,
     val uuid: String? = null,
     val name: String?,
