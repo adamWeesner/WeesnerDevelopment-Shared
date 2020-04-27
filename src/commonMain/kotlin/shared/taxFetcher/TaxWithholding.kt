@@ -1,6 +1,7 @@
 package shared.taxFetcher
 
 import shared.base.GenericItem
+import shared.base.History
 import shared.currentTimeMillis
 
 /**
@@ -13,6 +14,7 @@ import shared.currentTimeMillis
  * @param amount The amount each withholding item is worth.
  *
  * @see GenericItem.id
+ * @see GenericItem.history
  * @see GenericItem.dateCreated
  * @see GenericItem.dateUpdated
  */
@@ -22,6 +24,7 @@ data class TaxWithholding(
     val type: TaxWithholdingTypes,
     val payPeriod: PayPeriod,
     val amount: Double,
+    override var history: MutableList<History>? = null,
     override val dateCreated: Long = currentTimeMillis(),
     override val dateUpdated: Long = currentTimeMillis()
 ) : GenericItem

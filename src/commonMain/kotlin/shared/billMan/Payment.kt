@@ -1,27 +1,26 @@
-package shared.taxFetcher
+package shared.billMan
 
 import shared.base.GenericItem
 import shared.base.History
+import shared.base.Owned
 import shared.currentTimeMillis
 
 /**
- * Medicare limit item, this represents the limit for the given [maritalStatus] and [year].
+ * The payment that occurs when you have "paid" a bill in the app.
  *
- * @param year The year given.
- * @param maritalStatus The [MaritalStatus].
- * @param amount The amount of the limit.
+ * @param amount the amount that is being paid.
  *
  * @see GenericItem.id
  * @see GenericItem.history
  * @see GenericItem.dateCreated
  * @see GenericItem.dateUpdated
+ * @see Owned.ownerId
  */
-data class MedicareLimit(
-    override val id: Int? = null,
-    val year: Int,
-    val maritalStatus: MaritalStatus,
-    val amount: Int,
+data class Payment(
+    override var id: Int? = null,
+    override var ownerId: String,
+    var amount: String,
     override var history: MutableList<History>? = null,
     override val dateCreated: Long = currentTimeMillis(),
     override val dateUpdated: Long = currentTimeMillis()
-) : GenericItem
+) : GenericItem, Owned

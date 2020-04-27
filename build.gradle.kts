@@ -4,7 +4,7 @@ plugins {
 }
 
 group = "com.weesnerdevelopment"
-version = "1.0.3"
+version = "1.1.0"
 
 repositories {
     mavenCentral()

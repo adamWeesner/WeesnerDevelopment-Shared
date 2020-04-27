@@ -1,6 +1,7 @@
 package shared.taxFetcher
 
 import shared.base.GenericItem
+import shared.base.History
 import shared.currentTimeMillis
 
 /**
@@ -37,6 +38,7 @@ import shared.currentTimeMillis
  * @param nonTaxable The amount that is not taxable by Federal Income Tax.
  *
  * @see GenericItem.id
+ * @see GenericItem.history
  * @see GenericItem.dateCreated
  * @see GenericItem.dateUpdated
  */
@@ -50,6 +52,7 @@ data class FederalIncomeTax(
     val plus: Double,
     val percent: Double,
     val nonTaxable: Double,
+    override var history: MutableList<History>? = null,
     override val dateCreated: Long = currentTimeMillis(),
     override val dateUpdated: Long = currentTimeMillis()
 ) : GenericItem
