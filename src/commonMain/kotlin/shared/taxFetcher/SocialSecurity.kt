@@ -2,6 +2,7 @@ package shared.taxFetcher
 
 import shared.base.GenericItem
 import shared.base.History
+import shared.base.HistoryItem
 import shared.currentTimeMillis
 
 /**
@@ -24,9 +25,9 @@ import shared.currentTimeMillis
  * @param limit The upper limit that can be taxed, if over this limit no more social security tax will be taken.
  *
  * @see GenericItem.id
- * @see GenericItem.history
  * @see GenericItem.dateCreated
  * @see GenericItem.dateUpdated
+ * @see HistoryItem.history
  */
 data class SocialSecurity(
     override val id: Int? = null,
@@ -36,4 +37,4 @@ data class SocialSecurity(
     override var history: MutableList<History>? = null,
     override val dateCreated: Long = currentTimeMillis(),
     override val dateUpdated: Long = currentTimeMillis()
-) : GenericItem
+) : GenericItem, HistoryItem

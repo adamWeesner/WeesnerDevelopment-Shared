@@ -3,21 +3,22 @@ package shared.billMan
 import shared.auth.User
 import shared.base.GenericItem
 import shared.base.History
-import shared.base.Owned
+import shared.base.HistoryItem
+import shared.base.OwnedItem
 import shared.currentTimeMillis
 
 /**
  * An income for the [User].
  *
  * @see GenericItem.id
- * @see GenericItem.history
  * @see GenericItem.dateCreated
  * @see GenericItem.dateUpdated
  * @see BaseBillManMoneyItem.name
  * @see BaseBillManMoneyItem.amount
  * @see BaseBillManMoneyItem.varyingAmount
  * @see BaseBillManMoneyItem.color
- * @see Owned.owner
+ * @see OwnedItem.owner
+ * @see HistoryItem.history
  */
 data class Income(
     override var id: Int? = null,
@@ -29,4 +30,4 @@ data class Income(
     override var history: MutableList<History>? = null,
     override val dateCreated: Long = currentTimeMillis(),
     override val dateUpdated: Long = currentTimeMillis()
-) : GenericItem, BaseBillManMoneyItem, Owned
+) : GenericItem, BaseBillManMoneyItem, OwnedItem, HistoryItem

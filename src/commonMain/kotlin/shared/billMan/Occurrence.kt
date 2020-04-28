@@ -3,7 +3,8 @@ package shared.billMan
 import shared.auth.User
 import shared.base.GenericItem
 import shared.base.History
-import shared.base.Owned
+import shared.base.HistoryItem
+import shared.base.OwnedItem
 import shared.currentTimeMillis
 
 /**
@@ -18,10 +19,10 @@ import shared.currentTimeMillis
  * @param payments list of [Payment] made for the [itemId] for this occurrence.
  *
  * @see GenericItem.id
- * @see GenericItem.history
  * @see GenericItem.dateCreated
  * @see GenericItem.dateUpdated
- * @see Owned.owner
+ * @see OwnedItem.owner
+ * @see HistoryItem.history
  */
 data class Occurrence(
     override var id: Int? = null,
@@ -36,4 +37,4 @@ data class Occurrence(
     override var history: MutableList<History>? = null,
     override val dateCreated: Long = currentTimeMillis(),
     override val dateUpdated: Long = currentTimeMillis()
-) : GenericItem, Owned
+) : GenericItem, OwnedItem, HistoryItem

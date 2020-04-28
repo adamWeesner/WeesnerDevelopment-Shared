@@ -2,6 +2,7 @@ package shared.taxFetcher
 
 import shared.base.GenericItem
 import shared.base.History
+import shared.base.HistoryItem
 import shared.currentTimeMillis
 
 /**
@@ -29,9 +30,9 @@ import shared.currentTimeMillis
  * @param limits List of the [MedicareLimit].
  *
  * @see GenericItem.id
- * @see GenericItem.history
  * @see GenericItem.dateCreated
  * @see GenericItem.dateUpdated
+ * @see HistoryItem.history
  */
 data class Medicare(
     override val id: Int? = null,
@@ -42,4 +43,4 @@ data class Medicare(
     override var history: MutableList<History>? = null,
     override val dateCreated: Long = currentTimeMillis(),
     override val dateUpdated: Long = currentTimeMillis()
-) : GenericItem
+) : GenericItem, HistoryItem

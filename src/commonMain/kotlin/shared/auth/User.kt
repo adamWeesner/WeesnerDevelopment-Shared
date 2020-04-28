@@ -2,6 +2,7 @@ package shared.auth
 
 import shared.base.GenericItem
 import shared.base.History
+import shared.base.HistoryItem
 import shared.currentTimeMillis
 import shared.toJson
 
@@ -16,9 +17,9 @@ import shared.toJson
  * @param password The hashed password of the user, if there is one.
  *
  * @see GenericItem.id
- * @see GenericItem.history
  * @see GenericItem.dateCreated
  * @see GenericItem.dateUpdated
+ * @see HistoryItem.history
  */
 data class User(
     override var id: Int? = null,
@@ -31,7 +32,7 @@ data class User(
     override var history: MutableList<History>? = null,
     override val dateCreated: Long = currentTimeMillis(),
     override val dateUpdated: Long = currentTimeMillis()
-) : GenericItem {
+) : GenericItem, HistoryItem {
     /**
      * [User] as a [HashedUser].
      */

@@ -2,6 +2,7 @@ package shared.billMan
 
 import shared.base.GenericItem
 import shared.base.History
+import shared.base.HistoryItem
 import shared.currentTimeMillis
 
 /**
@@ -11,6 +12,11 @@ import shared.currentTimeMillis
  * @param green The green channel of the color.
  * @param blue The blue channel of the color.
  * @param alpha The alpha channel of the color.
+ *
+ * @see GenericItem.id
+ * @see GenericItem.dateCreated
+ * @see GenericItem.dateUpdated
+ * @see HistoryItem.history
  */
 data class Color(
     override var id: Int? = null,
@@ -21,4 +27,4 @@ data class Color(
     override var history: MutableList<History>? = null,
     override val dateCreated: Long = currentTimeMillis(),
     override val dateUpdated: Long = currentTimeMillis()
-) : GenericItem
+) : GenericItem, HistoryItem

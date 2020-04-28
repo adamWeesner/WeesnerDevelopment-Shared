@@ -3,19 +3,19 @@ package shared.billMan
 import shared.auth.User
 import shared.base.GenericItem
 import shared.base.History
-import shared.base.Owned
+import shared.base.HistoryItem
 import shared.currentTimeMillis
 
 /**
  * Category for a [Bill].
  *
  * @param name The name of the category.
+ * @param owner The [User] that owns the category, if there is one.
  *
  * @see GenericItem.id
- * @see GenericItem.history
  * @see GenericItem.dateCreated
  * @see GenericItem.dateUpdated
- * @see Owned.owner
+ * @see HistoryItem.history
  */
 data class Category(
     override var id: Int? = null,
@@ -24,4 +24,4 @@ data class Category(
     override var history: MutableList<History>? = null,
     override val dateCreated: Long = currentTimeMillis(),
     override val dateUpdated: Long = currentTimeMillis()
-) : GenericItem
+) : GenericItem, HistoryItem
