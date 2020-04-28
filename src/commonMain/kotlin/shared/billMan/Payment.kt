@@ -22,7 +22,7 @@ data class Payment(
     override var id: Int? = null,
     override var owner: User,
     var amount: String,
-    override var history: MutableList<History>? = null,
+    override var history: List<History>? = null,
     override val dateCreated: Long = currentTimeMillis(),
     override val dateUpdated: Long = currentTimeMillis()
 ) : GenericItem, OwnedItem, HistoryItem

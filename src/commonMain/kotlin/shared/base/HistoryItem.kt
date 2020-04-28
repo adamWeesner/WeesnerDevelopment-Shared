@@ -7,5 +7,5 @@ interface HistoryItem {
     /**
      * List of [History], to keep track of when things get updated.
      */
-    var history: MutableList<History>?
+    var history: List<History>?
 }

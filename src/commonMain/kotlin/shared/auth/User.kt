@@ -29,7 +29,7 @@ data class User(
     val photoUrl: String? = null,
     var username: String? = null,
     var password: String? = null,
-    override var history: MutableList<History>? = null,
+    override var history: List<History>? = null,
     override val dateCreated: Long = currentTimeMillis(),
     override val dateUpdated: Long = currentTimeMillis()
 ) : GenericItem, HistoryItem {

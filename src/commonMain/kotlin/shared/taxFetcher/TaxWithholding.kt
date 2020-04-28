@@ -25,7 +25,7 @@ data class TaxWithholding(
     val type: TaxWithholdingTypes,
     val payPeriod: PayPeriod,
     val amount: Double,
-    override var history: MutableList<History>? = null,
+    override var history: List<History>? = null,
     override val dateCreated: Long = currentTimeMillis(),
     override val dateUpdated: Long = currentTimeMillis()
 ) : GenericItem, HistoryItem

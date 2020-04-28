@@ -34,7 +34,7 @@ data class SocialSecurity(
     val year: Int,
     val percent: Double,
     val limit: Int,
-    override var history: MutableList<History>? = null,
+    override var history: List<History>? = null,
     override val dateCreated: Long = currentTimeMillis(),
     override val dateUpdated: Long = currentTimeMillis()
 ) : GenericItem, HistoryItem

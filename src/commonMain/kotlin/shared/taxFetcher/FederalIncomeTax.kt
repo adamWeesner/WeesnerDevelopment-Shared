@@ -53,7 +53,7 @@ data class FederalIncomeTax(
     val plus: Double,
     val percent: Double,
     val nonTaxable: Double,
-    override var history: MutableList<History>? = null,
+    override var history: List<History>? = null,
     override val dateCreated: Long = currentTimeMillis(),
     override val dateUpdated: Long = currentTimeMillis()
 ) : GenericItem, HistoryItem

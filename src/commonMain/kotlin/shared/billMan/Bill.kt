@@ -34,7 +34,7 @@ data class Bill(
     var sharedUsers: List<User>? = null,
     var categories: List<Category>,
     override var color: Color,
-    override var history: MutableList<History>? = null,
+    override var history: List<History>? = null,
     override val dateCreated: Long = currentTimeMillis(),
     override val dateUpdated: Long = currentTimeMillis()
 ) : GenericItem, BaseBillManMoneyItem, OwnedItem, HistoryItem

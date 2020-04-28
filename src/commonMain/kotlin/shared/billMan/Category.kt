@@ -21,7 +21,7 @@ data class Category(
     override var id: Int? = null,
     val owner: User? = null,
     val name: String,
-    override var history: MutableList<History>? = null,
+    override var history: List<History>? = null,
     override val dateCreated: Long = currentTimeMillis(),
     override val dateUpdated: Long = currentTimeMillis()
 ) : GenericItem, HistoryItem

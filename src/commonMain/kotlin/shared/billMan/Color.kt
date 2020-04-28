@@ -24,7 +24,7 @@ data class Color(
     var green: Int,
     var blue: Int,
     var alpha: Int,
-    override var history: MutableList<History>? = null,
+    override var history: List<History>? = null,
     override val dateCreated: Long = currentTimeMillis(),
     override val dateUpdated: Long = currentTimeMillis()
 ) : GenericItem, HistoryItem

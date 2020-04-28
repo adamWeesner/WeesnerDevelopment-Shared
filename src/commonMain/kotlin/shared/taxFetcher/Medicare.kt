@@ -40,7 +40,7 @@ data class Medicare(
     val percent: Double,
     val additionalPercent: Double,
     val limits: List<MedicareLimit>,
-    override var history: MutableList<History>? = null,
+    override var history: List<History>? = null,
     override val dateCreated: Long = currentTimeMillis(),
     override val dateUpdated: Long = currentTimeMillis()
 ) : GenericItem, HistoryItem

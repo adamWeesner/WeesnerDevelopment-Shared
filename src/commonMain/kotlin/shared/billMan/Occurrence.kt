@@ -34,7 +34,7 @@ data class Occurrence(
     var amount: String,
     var every: String,
     var payments: MutableList<Payment>? = null,
-    override var history: MutableList<History>? = null,
+    override var history: List<History>? = null,
     override val dateCreated: Long = currentTimeMillis(),
     override val dateUpdated: Long = currentTimeMillis()
 ) : GenericItem, OwnedItem, HistoryItem

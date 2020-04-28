@@ -22,7 +22,7 @@ data class MedicareLimit(
     val year: Int,
     val maritalStatus: MaritalStatus,
     val amount: Int,
-    override var history: MutableList<History>? = null,
+    override var history: List<History>? = null,
     override val dateCreated: Long = currentTimeMillis(),
     override val dateUpdated: Long = currentTimeMillis()
 ) : GenericItem, HistoryItem
