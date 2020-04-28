@@ -1,5 +1,6 @@
 package shared.base
 
+import shared.auth.User
 import shared.currentTimeMillis
 
 /**
@@ -8,13 +9,13 @@ import shared.currentTimeMillis
  * @param field The name of the backend item field to be updated.
  * @param oldValue The current value of the field.
  * @param newValue The new value of the field.
- * @param updatedBy The uuid of the [User] who did the update.
+ * @param updatedBy The [User] who made the update.
  * @param updatedAt The millis representation of the time that the item was updated.
  */
 data class History(
     val field: String,
     val oldValue: Any?,
     val newValue: Any?,
-    val updatedBy: String,
+    val updatedBy: User,
     val updatedAt: Long = currentTimeMillis()
 )

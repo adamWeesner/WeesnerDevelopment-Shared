@@ -1,5 +1,6 @@
 package shared.billMan
 
+import shared.auth.User
 import shared.base.GenericItem
 import shared.base.History
 import shared.base.Owned
@@ -20,12 +21,12 @@ import shared.currentTimeMillis
  * @see GenericItem.history
  * @see GenericItem.dateCreated
  * @see GenericItem.dateUpdated
- * @see Owned.ownerId
+ * @see Owned.owner
  */
 data class Occurrence(
     override var id: Int? = null,
-    override val ownerId: String,
-    val sharedUsers: List<String>? = null,
+    override val owner: User,
+    val sharedUsers: List<User>? = null,
     val itemId: String,
     var dueDate: Long,
     var amountLeft: String,

@@ -1,5 +1,6 @@
 package shared.billMan
 
+import shared.auth.User
 import shared.base.GenericItem
 import shared.base.History
 import shared.base.Owned
@@ -16,11 +17,11 @@ import shared.currentTimeMillis
  * @see BaseBillManMoneyItem.amount
  * @see BaseBillManMoneyItem.varyingAmount
  * @see BaseBillManMoneyItem.color
- * @see Owned.ownerId
+ * @see Owned.owner
  */
 data class Income(
     override var id: Int? = null,
-    override val ownerId: String,
+    override val owner: User,
     override var name: String,
     override var amount: String,
     override var varyingAmount: Boolean = false,
