@@ -19,9 +19,9 @@ import shared.currentTimeMillis
  */
 data class Category(
     override var id: Int? = null,
-    override val owner: User,
+    val owner: User? = null,
     val name: String,
     override var history: MutableList<History>? = null,
     override val dateCreated: Long = currentTimeMillis(),
     override val dateUpdated: Long = currentTimeMillis()
-) : GenericItem, Owned
+) : GenericItem
