@@ -1,5 +1,7 @@
 package shared.billMan
 
+import shared.Parcelable
+import shared.Parcelize
 import shared.auth.User
 import shared.base.GenericItem
 import shared.base.History
@@ -18,6 +20,7 @@ import shared.currentTimeMillis
  * @see OwnedItem.owner
  * @see HistoryItem.history
  */
+@Parcelize
 data class Payment(
     override var id: Int? = null,
     override var owner: User,
@@ -25,4 +28,4 @@ data class Payment(
     override var history: List<History>? = null,
     override val dateCreated: Long = currentTimeMillis(),
     override val dateUpdated: Long = currentTimeMillis()
-) : GenericItem, OwnedItem, HistoryItem
+) : GenericItem, OwnedItem, HistoryItem, Parcelable

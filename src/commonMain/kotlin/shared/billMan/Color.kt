@@ -1,5 +1,7 @@
 package shared.billMan
 
+import shared.Parcelable
+import shared.Parcelize
 import shared.base.GenericItem
 import shared.base.History
 import shared.base.HistoryItem
@@ -18,6 +20,7 @@ import shared.currentTimeMillis
  * @see GenericItem.dateUpdated
  * @see HistoryItem.history
  */
+@Parcelize
 data class Color(
     override var id: Int? = null,
     var red: Int,
@@ -27,4 +30,4 @@ data class Color(
     override var history: List<History>? = null,
     override val dateCreated: Long = currentTimeMillis(),
     override val dateUpdated: Long = currentTimeMillis()
-) : GenericItem, HistoryItem
+) : GenericItem, HistoryItem, Parcelable

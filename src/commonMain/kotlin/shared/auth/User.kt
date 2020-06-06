@@ -1,5 +1,7 @@
 package shared.auth
 
+import shared.Parcelable
+import shared.Parcelize
 import shared.base.GenericItem
 import shared.base.History
 import shared.base.HistoryItem
@@ -21,6 +23,7 @@ import shared.toJson
  * @see GenericItem.dateUpdated
  * @see HistoryItem.history
  */
+@Parcelize
 data class User(
     override var id: Int? = null,
     val uuid: String? = null,
@@ -32,7 +35,7 @@ data class User(
     override var history: List<History>? = null,
     override val dateCreated: Long = currentTimeMillis(),
     override val dateUpdated: Long = currentTimeMillis()
-) : GenericItem, HistoryItem {
+) : GenericItem, HistoryItem, Parcelable {
     /**
      * [User] as a [HashedUser].
      */

@@ -1,5 +1,7 @@
 package shared.base
 
+import shared.Parcelable
+import shared.Parcelize
 import shared.auth.User
 import shared.currentTimeMillis
 
@@ -15,6 +17,7 @@ import shared.currentTimeMillis
  * @see GenericItem.dateCreated
  * @see GenericItem.dateUpdated
  */
+@Parcelize
 data class History(
     override val id: Int? = null,
     val field: String,
@@ -23,4 +26,4 @@ data class History(
     val updatedBy: User,
     override val dateCreated: Long = currentTimeMillis(),
     override val dateUpdated: Long = currentTimeMillis()
-) : GenericItem
+) : GenericItem, Parcelable
