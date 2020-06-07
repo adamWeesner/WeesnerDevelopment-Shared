@@ -2,6 +2,7 @@ package shared.base
 
 import shared.Parcelable
 import shared.Parcelize
+import shared.RawValue
 import shared.auth.User
 import shared.currentTimeMillis
 
@@ -21,8 +22,8 @@ import shared.currentTimeMillis
 data class History(
     override val id: Int? = null,
     val field: String,
-    val oldValue: Any?,
-    val newValue: Any?,
+    val oldValue: @RawValue Any?,
+    val newValue: @RawValue Any?,
     val updatedBy: User,
     override val dateCreated: Long = currentTimeMillis(),
     override val dateUpdated: Long = currentTimeMillis()
