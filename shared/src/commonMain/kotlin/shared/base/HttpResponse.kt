@@ -16,6 +16,8 @@ data class HttpStatus(val code: Int, val description: String) : Parcelable {
     companion object {
         val OK = HttpStatus(200, "OK")
         val Created = HttpStatus(201, "Created")
+        jad
+        val NoContent = HttpStatus(204, "No Content")
         val BadRequest = HttpStatus(400, "Bad Request")
         val Unauthorized = HttpStatus(401, "Unauthorized")
         val NotFound = HttpStatus(404, "Not Found")
@@ -35,6 +37,7 @@ data class Response(val status: HttpStatus, val message: @RawValue Any) : Parcel
     companion object {
         fun Ok(message: Any) = Response(HttpStatus.OK, message)
         fun Created(message: Any) = Response(HttpStatus.Created, message)
+        fun NoContent(message: Any) = Response(HttpStatus.NoContent, message)
         fun BadRequest(message: String) = Response(HttpStatus.BadRequest, message)
         fun NotFound(message: String) = Response(HttpStatus.NotFound, message)
         fun Conflict(message: String) = Response(HttpStatus.Conflict, message)
