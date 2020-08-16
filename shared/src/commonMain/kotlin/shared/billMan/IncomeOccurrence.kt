@@ -27,7 +27,7 @@ import shared.currentTimeMillis
  * @see HistoryItem.history
  */
 @Parcelize
-data class Occurrence(
+data class IncomeOccurrence(
     override var id: Int? = null,
     override val owner: User,
     val sharedUsers: List<User>? = null,

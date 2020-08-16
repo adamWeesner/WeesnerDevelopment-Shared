@@ -16,7 +16,6 @@ data class HttpStatus(val code: Int, val description: String) : Parcelable {
     companion object {
         val OK = HttpStatus(200, "OK")
         val Created = HttpStatus(201, "Created")
-        jad
         val NoContent = HttpStatus(204, "No Content")
         val BadRequest = HttpStatus(400, "Bad Request")
         val Unauthorized = HttpStatus(401, "Unauthorized")
