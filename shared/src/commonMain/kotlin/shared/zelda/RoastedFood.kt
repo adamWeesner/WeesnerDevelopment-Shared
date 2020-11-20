@@ -3,6 +3,7 @@ package shared.zelda
 import shared.Parcelable
 import shared.Parcelize
 import shared.base.GenericItem
+import shared.currentTimeMillis
 
 @Parcelize
 data class RoastedFood(
@@ -12,6 +13,6 @@ data class RoastedFood(
     val effect: List<Image>,
     val description: String,
     val ingredients: List<String>,
-    override val dateCreated: Long,
-    override val dateUpdated: Long
+    override val dateCreated: Long = currentTimeMillis(),
+    override val dateUpdated: Long = currentTimeMillis()
 ) : GenericItem, Parcelable
