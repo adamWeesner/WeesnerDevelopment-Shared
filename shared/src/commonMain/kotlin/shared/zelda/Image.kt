@@ -7,7 +7,7 @@ import shared.currentTimeMillis
 
 @Parcelize
 data class Image(
-    override val id: Int?,
+    override val id: Int? = null,
     val description: String,
     val src: String,
     val width: Int,

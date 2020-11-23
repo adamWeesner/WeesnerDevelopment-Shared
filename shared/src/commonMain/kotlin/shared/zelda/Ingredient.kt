@@ -7,12 +7,12 @@ import shared.currentTimeMillis
 
 @Parcelize
 data class Ingredient(
-    override val id: Int?,
+    override val id: Int? = null,
     val title: String,
     val subtitle: String?,
     val name: String,
     val image: Image,
-    val hearts: List<Image>,
+    val hearts: List<Image>?,
     val effects: String?,
     val bonus: String?,
     val bonusAddOns: List<Image>?,

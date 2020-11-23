@@ -7,7 +7,7 @@ import shared.currentTimeMillis
 
 @Parcelize
 data class FrozenFood(
-    override val id: Int?,
+    override val id: Int? = null,
     val name: String,
     val image: Image,
     val effect: List<Image>,

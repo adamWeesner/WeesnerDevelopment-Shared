@@ -11,7 +11,7 @@ buildscript {
 
 subprojects {
     group = "com.weesnerdevelopment"
-    version = if (version != "unspecified") version else "1.5.1"
+    version = if (version != "unspecified") version else "1.5.2"
 
     repositories {
         jcenter()

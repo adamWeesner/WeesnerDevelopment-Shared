@@ -7,7 +7,7 @@ import shared.currentTimeMillis
 
 @Parcelize
 data class MonsterPart(
-    override val id: Int?,
+    override val id: Int? = null,
     val part: String,
     val durationIncrease: String,
     override val dateCreated: Long = currentTimeMillis(),

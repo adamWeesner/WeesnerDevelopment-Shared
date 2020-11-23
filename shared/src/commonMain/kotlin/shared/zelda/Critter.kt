@@ -7,7 +7,7 @@ import shared.currentTimeMillis
 
 @Parcelize
 data class Critter(
-    override val id: Int?,
+    override val id: Int? = null,
     val critter: String,
     val effectClass: String?,
     val boostEffect: String?,
