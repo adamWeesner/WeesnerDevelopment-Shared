@@ -7,5 +7,5 @@ import com.weesnerdevelopment.shared.serialCabinet.Electronic
 
 @Parcelize
 data class ElectronicsResponse(
-    override var items: List<Electronic>? = null
+    override var items: List<Electronic> = emptyList()
 ) : GenericResponse<Electronic>, Parcelable

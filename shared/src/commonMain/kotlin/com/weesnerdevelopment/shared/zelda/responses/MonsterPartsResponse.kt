@@ -7,5 +7,5 @@ import com.weesnerdevelopment.shared.zelda.MonsterPart
 
 @Parcelize
 data class MonsterPartsResponse(
-    override var items: List<MonsterPart>? = null
+    override var items: List<MonsterPart> = emptyList()
 ) : GenericResponse<MonsterPart>, Parcelable

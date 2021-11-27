@@ -7,5 +7,5 @@ import com.weesnerdevelopment.shared.taxFetcher.Medicare
 
 @Parcelize
 data class MedicareResponse(
-    override var items: List<Medicare>? = null
+    override var items: List<Medicare> = emptyList()
 ) : GenericResponse<Medicare>, Parcelable

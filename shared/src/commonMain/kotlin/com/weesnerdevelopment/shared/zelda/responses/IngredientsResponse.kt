@@ -7,5 +7,5 @@ import com.weesnerdevelopment.shared.zelda.Ingredient
 
 @Parcelize
 data class IngredientsResponse(
-    override var items: List<Ingredient>? = null
+    override var items: List<Ingredient> = emptyList()
 ) : GenericResponse<Ingredient>, Parcelable

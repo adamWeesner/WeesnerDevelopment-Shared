@@ -2,7 +2,6 @@ package com.weesnerdevelopment.shared.base
 
 import com.weesnerdevelopment.shared.Parcelable
 import com.weesnerdevelopment.shared.Parcelize
-import com.weesnerdevelopment.shared.RawValue
 import com.weesnerdevelopment.shared.auth.User
 import com.weesnerdevelopment.shared.currentTimeMillis
 
@@ -22,8 +21,8 @@ import com.weesnerdevelopment.shared.currentTimeMillis
 data class History(
     override val id: Int? = null,
     val field: String,
-    val oldValue: @RawValue Any?,
-    val newValue: @RawValue Any?,
+    val oldValue: String?,
+    val newValue: String?,
     val updatedBy: User,
     override val dateCreated: Long = currentTimeMillis(),
     override val dateUpdated: Long = currentTimeMillis()

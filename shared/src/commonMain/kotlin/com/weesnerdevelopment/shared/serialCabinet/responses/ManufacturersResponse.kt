@@ -7,5 +7,5 @@ import com.weesnerdevelopment.shared.serialCabinet.Manufacturer
 
 @Parcelize
 data class ManufacturersResponse(
-    override var items: List<Manufacturer>? = null
+    override var items: List<Manufacturer> = emptyList()
 ) : GenericResponse<Manufacturer>, Parcelable

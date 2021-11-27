@@ -7,5 +7,5 @@ import com.weesnerdevelopment.shared.billMan.Category
 
 @Parcelize
 data class CategoriesResponse(
-    override var items: List<Category>? = null
+    override var items: List<Category> = emptyList()
 ) : GenericResponse<Category>, Parcelable

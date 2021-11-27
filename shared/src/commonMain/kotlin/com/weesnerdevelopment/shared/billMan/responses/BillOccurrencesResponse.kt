@@ -7,5 +7,5 @@ import com.weesnerdevelopment.shared.billMan.BillOccurrence
 
 @Parcelize
 data class BillOccurrencesResponse(
-    override var items: List<BillOccurrence>? = null
+    override var items: List<BillOccurrence> = emptyList()
 ) : GenericResponse<BillOccurrence>, Parcelable

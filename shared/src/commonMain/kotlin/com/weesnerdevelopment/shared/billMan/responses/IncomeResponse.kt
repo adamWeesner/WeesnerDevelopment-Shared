@@ -7,5 +7,5 @@ import com.weesnerdevelopment.shared.billMan.Income
 
 @Parcelize
 data class IncomeResponse(
-    override var items: List<Income>? = null
+    override var items: List<Income> = emptyList()
 ) : GenericResponse<Income>, Parcelable

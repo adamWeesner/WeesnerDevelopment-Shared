@@ -7,5 +7,5 @@ import com.weesnerdevelopment.shared.zelda.Critter
 
 @Parcelize
 data class CrittersResponse(
-    override var items: List<Critter>? = null
+    override var items: List<Critter> = emptyList()
 ) : GenericResponse<Critter>, Parcelable

@@ -7,5 +7,5 @@ import com.weesnerdevelopment.shared.taxFetcher.TaxWithholding
 
 @Parcelize
 data class TaxWithholdingResponse(
-    override var items: List<TaxWithholding>? = null
+    override var items: List<TaxWithholding> = emptyList()
 ) : GenericResponse<TaxWithholding>, Parcelable

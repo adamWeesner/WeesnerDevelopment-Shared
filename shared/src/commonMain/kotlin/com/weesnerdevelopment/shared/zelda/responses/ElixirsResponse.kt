@@ -7,5 +7,5 @@ import com.weesnerdevelopment.shared.zelda.Elixir
 
 @Parcelize
 data class ElixirsResponse(
-    override var items: List<Elixir>? = null
+    override var items: List<Elixir> = emptyList()
 ) : GenericResponse<Elixir>, Parcelable

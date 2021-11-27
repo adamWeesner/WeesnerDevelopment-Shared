@@ -7,5 +7,5 @@ import com.weesnerdevelopment.shared.taxFetcher.SocialSecurity
 
 @Parcelize
 data class SocialSecurityResponse(
-    override var items: List<SocialSecurity>? = null
+    override var items: List<SocialSecurity> = emptyList()
 ) : GenericResponse<SocialSecurity>, Parcelable

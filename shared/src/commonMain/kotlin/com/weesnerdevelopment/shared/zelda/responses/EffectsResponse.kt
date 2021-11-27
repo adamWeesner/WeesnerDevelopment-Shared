@@ -7,5 +7,5 @@ import com.weesnerdevelopment.shared.zelda.Effect
 
 @Parcelize
 data class EffectsResponse(
-    override var items: List<Effect>? = null
+    override var items: List<Effect> = emptyList()
 ) : GenericResponse<Effect>, Parcelable

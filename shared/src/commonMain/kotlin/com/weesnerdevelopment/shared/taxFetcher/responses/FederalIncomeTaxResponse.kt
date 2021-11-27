@@ -7,5 +7,5 @@ import com.weesnerdevelopment.shared.taxFetcher.FederalIncomeTax
 
 @Parcelize
 data class FederalIncomeTaxResponse(
-    override var items: List<FederalIncomeTax>? = null
+    override var items: List<FederalIncomeTax> = emptyList()
 ) : GenericResponse<FederalIncomeTax>, Parcelable

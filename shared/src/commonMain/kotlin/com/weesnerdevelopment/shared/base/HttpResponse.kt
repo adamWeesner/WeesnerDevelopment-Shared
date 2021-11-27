@@ -2,8 +2,8 @@ package com.weesnerdevelopment.shared.base
 
 import com.weesnerdevelopment.shared.Parcelable
 import com.weesnerdevelopment.shared.Parcelize
-import com.weesnerdevelopment.shared.RawValue
 import com.weesnerdevelopment.shared.auth.InvalidUserException
+import com.weesnerdevelopment.shared.toJson
 
 /**
  * The Http status for the given network request.
@@ -32,15 +32,15 @@ data class HttpStatus(val code: Int, val description: String) : Parcelable {
  * @param message The message of the response.
  */
 @Parcelize
-data class Response(val status: HttpStatus, val message: @RawValue Any) : Parcelable {
+data class Response(val status: HttpStatus, val message: String?) : Parcelable {
     companion object {
-        fun Ok(message: Any) = Response(HttpStatus.OK, message)
-        fun Created(message: Any) = Response(HttpStatus.Created, message)
-        fun NoContent(message: Any) = Response(HttpStatus.NoContent, message)
+        fun Ok(message: Any) = Response(HttpStatus.OK, message.toJson())
+        fun Created(message: Any) = Response(HttpStatus.Created, message.toJson())
+        fun NoContent(message: Any) = Response(HttpStatus.NoContent, message.toJson())
         fun BadRequest(message: String) = Response(HttpStatus.BadRequest, message)
         fun NotFound(message: String) = Response(HttpStatus.NotFound, message)
         fun Conflict(message: String) = Response(HttpStatus.Conflict, message)
         fun InternalError(message: String) = Response(HttpStatus.InternalServerError, message)
-        fun Unauthorized(reason: InvalidUserException) = Response(HttpStatus.Unauthorized, reason)
+        fun Unauthorized(reason: InvalidUserException) = Response(HttpStatus.Unauthorized, reason.toJson())
     }
 }
