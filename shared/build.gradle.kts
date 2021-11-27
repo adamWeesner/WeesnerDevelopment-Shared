@@ -36,7 +36,7 @@ kotlin {
         val main by compilations.getting {
             kotlinOptions {
                 // Setup the Kotlin compiler options for the 'main' compilation:
-                jvmTarget = "1.8"
+                jvmTarget = JavaVersion.VERSION_11.majorVersion
             }
         }
 
@@ -45,11 +45,7 @@ kotlin {
     js("nodeJs")
 
     sourceSets {
-        val commonMain by getting {
-            dependencies {
-                implementation(kotlin("stdlib-common"))
-            }
-        }
+        val commonMain by getting
         val commonTest by getting {
             dependencies {
                 implementation(kotlin("test-common"))
@@ -59,7 +55,6 @@ kotlin {
 
         val jvmMain by getting {
             dependencies {
-                implementation(kotlin("stdlib-jdk8"))
                 implementation("com.squareup.moshi:moshi-kotlin:1.9.2")
             }
         }
@@ -70,12 +65,7 @@ kotlin {
             }
         }
 
-        val nodeJsMain by getting {
-            dependencies {
-                implementation(kotlin("stdlib-js"))
-            }
-        }
-
+        val nodeJsMain by getting
         val nodeJsTest by getting {
             dependencies {
                 implementation(kotlin("test-js"))
@@ -84,7 +74,6 @@ kotlin {
 
         val androidMain by getting {
             dependencies {
-                implementation(kotlin("stdlib-jdk8"))
                 implementation("com.squareup.retrofit2:converter-moshi:2.7.0")
             }
         }
