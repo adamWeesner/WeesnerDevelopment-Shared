@@ -1,11 +1,10 @@
 package com.weesnerdevelopment.shared.taxFetcher
 
-import com.weesnerdevelopment.shared.Parcelable
-import com.weesnerdevelopment.shared.Parcelize
 import com.weesnerdevelopment.shared.base.GenericItem
 import com.weesnerdevelopment.shared.base.History
 import com.weesnerdevelopment.shared.base.HistoryItem
 import com.weesnerdevelopment.shared.currentTimeMillis
+import kotlinx.serialization.Serializable
 
 /**
  * Medicare limit item, this represents the limit for the given [maritalStatus] and [year].
@@ -19,7 +18,7 @@ import com.weesnerdevelopment.shared.currentTimeMillis
  * @see GenericItem.dateUpdated
  * @see HistoryItem.history
  */
-@Parcelize
+@Serializable
 data class MedicareLimit(
     override val id: Int? = null,
     val year: Int,
@@ -28,4 +27,4 @@ data class MedicareLimit(
     override var history: List<History>? = null,
     override val dateCreated: Long = currentTimeMillis(),
     override val dateUpdated: Long = currentTimeMillis()
-) : GenericItem, HistoryItem, Parcelable
+) : GenericItem, HistoryItem

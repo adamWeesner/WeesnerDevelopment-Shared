@@ -1,12 +1,11 @@
 package com.weesnerdevelopment.shared.auth
 
-import com.weesnerdevelopment.shared.Parcelable
-import com.weesnerdevelopment.shared.Parcelize
 import com.weesnerdevelopment.shared.base.GenericItem
 import com.weesnerdevelopment.shared.base.History
 import com.weesnerdevelopment.shared.base.HistoryItem
 import com.weesnerdevelopment.shared.currentTimeMillis
 import com.weesnerdevelopment.shared.toJson
+import kotlinx.serialization.Serializable
 
 /**
  * A user.
@@ -23,7 +22,7 @@ import com.weesnerdevelopment.shared.toJson
  * @see GenericItem.dateUpdated
  * @see HistoryItem.history
  */
-@Parcelize
+@Serializable
 data class User(
     override var id: Int? = null,
     val uuid: String? = null,

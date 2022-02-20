@@ -1,11 +1,10 @@
 package com.weesnerdevelopment.shared.serialCabinet
 
-import com.weesnerdevelopment.shared.Parcelable
-import com.weesnerdevelopment.shared.Parcelize
 import com.weesnerdevelopment.shared.base.GenericItem
 import com.weesnerdevelopment.shared.base.History
 import com.weesnerdevelopment.shared.base.HistoryItem
 import com.weesnerdevelopment.shared.currentTimeMillis
+import kotlinx.serialization.Serializable
 
 /**
  * Category for Serial Cabinet items.
@@ -18,7 +17,7 @@ import com.weesnerdevelopment.shared.currentTimeMillis
  * @see GenericItem.dateUpdated
  * @see HistoryItem.history
  */
-@Parcelize
+@Serializable
 data class Category(
     override var id: Int? = null,
     val name: String,
@@ -26,4 +25,4 @@ data class Category(
     override val dateCreated: Long = currentTimeMillis(),
     override val dateUpdated: Long = currentTimeMillis(),
     override var history: List<History>? = null
-) : GenericItem, HistoryItem, Parcelable
+) : GenericItem, HistoryItem

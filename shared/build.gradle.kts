@@ -1,7 +1,7 @@
 plugins {
     kotlin("multiplatform")
     id("com.android.library")
-    kotlin("android.extensions")
+    kotlin("plugin.serialization") version "1.5.31"
     id("maven-publish")
 }
 
@@ -25,13 +25,7 @@ android {
 }
 
 kotlin {
-    android {
-        publishAllLibraryVariants()
-        publishLibraryVariantsGroupedByFlavor = true
-        mavenPublication {
-            artifactId = "shared-android"
-        }
-    }
+    android()
     jvm {
         val main by compilations.getting {
             kotlinOptions {
@@ -45,7 +39,11 @@ kotlin {
     js("nodeJs")
 
     sourceSets {
-        val commonMain by getting
+        val commonMain by getting {
+            dependencies {
+                implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.3.1")
+            }
+        }
         val commonTest by getting {
             dependencies {
                 implementation(kotlin("test-common"))
@@ -53,12 +51,7 @@ kotlin {
             }
         }
 
-        val jvmMain by getting {
-            dependencies {
-                implementation("com.squareup.moshi:moshi-kotlin:1.9.2")
-            }
-        }
-
+        val jvmMain by getting
         val jvmTest by getting {
             dependencies {
                 implementation(kotlin("test-junit"))
@@ -66,16 +59,6 @@ kotlin {
         }
 
         val nodeJsMain by getting
-        val nodeJsTest by getting {
-            dependencies {
-                implementation(kotlin("test-js"))
-            }
-        }
-
-        val androidMain by getting {
-            dependencies {
-                implementation("com.squareup.retrofit2:converter-moshi:2.7.0")
-            }
-        }
+        val androidMain by getting
     }
 }

@@ -1,13 +1,11 @@
 package com.weesnerdevelopment.shared.serialCabinet
 
-import com.weesnerdevelopment.shared.Parcelable
-import com.weesnerdevelopment.shared.Parcelize
-import com.weesnerdevelopment.shared.auth.User
 import com.weesnerdevelopment.shared.base.GenericItem
 import com.weesnerdevelopment.shared.base.History
 import com.weesnerdevelopment.shared.base.HistoryItem
 import com.weesnerdevelopment.shared.base.OwnedItem
 import com.weesnerdevelopment.shared.currentTimeMillis
+import kotlinx.serialization.Serializable
 
 /**
  * Category for Serial Cabinet items.
@@ -29,7 +27,7 @@ import com.weesnerdevelopment.shared.currentTimeMillis
  * @see OwnedItem.owner
  * @see HistoryItem.history
  */
-@Parcelize
+@Serializable
 data class Electronic(
     override var id: Int? = null,
     override val name: String,

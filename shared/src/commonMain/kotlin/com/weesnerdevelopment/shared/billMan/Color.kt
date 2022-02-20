@@ -1,11 +1,10 @@
 package com.weesnerdevelopment.shared.billMan
 
-import com.weesnerdevelopment.shared.Parcelable
-import com.weesnerdevelopment.shared.Parcelize
 import com.weesnerdevelopment.shared.base.GenericItem
 import com.weesnerdevelopment.shared.base.History
 import com.weesnerdevelopment.shared.base.HistoryItem
 import com.weesnerdevelopment.shared.currentTimeMillis
+import kotlinx.serialization.Serializable
 
 /**
  * The color to be shown to the user for specific items.
@@ -20,7 +19,7 @@ import com.weesnerdevelopment.shared.currentTimeMillis
  * @see GenericItem.dateUpdated
  * @see HistoryItem.history
  */
-@Parcelize
+@Serializable
 data class Color(
     override var id: Int? = null,
     var red: Int,

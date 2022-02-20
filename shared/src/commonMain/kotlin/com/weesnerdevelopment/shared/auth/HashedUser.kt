@@ -1,7 +1,6 @@
 package com.weesnerdevelopment.shared.auth
 
-import com.weesnerdevelopment.shared.Parcelable
-import com.weesnerdevelopment.shared.Parcelize
+import kotlinx.serialization.Serializable
 
 /**
  * Hashed representation of a [User] that has a hashed [username] and [password] that should be gotten from a JWT.
@@ -9,8 +8,8 @@ import com.weesnerdevelopment.shared.Parcelize
  * @see User.username
  * @see User.password
  */
-@Parcelize
+@Serializable
 data class HashedUser(
     val username: String,
     val password: String
-) : Parcelable
+)

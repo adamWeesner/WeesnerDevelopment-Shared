@@ -1,11 +1,10 @@
 package com.weesnerdevelopment.shared.taxFetcher.responses
 
-import com.weesnerdevelopment.shared.Parcelable
-import com.weesnerdevelopment.shared.Parcelize
 import com.weesnerdevelopment.shared.base.GenericResponse
 import com.weesnerdevelopment.shared.taxFetcher.FederalIncomeTax
+import kotlinx.serialization.Serializable
 
-@Parcelize
+@Serializable
 data class FederalIncomeTaxResponse(
     override var items: List<FederalIncomeTax> = emptyList()
-) : GenericResponse<FederalIncomeTax>, Parcelable
+) : GenericResponse<FederalIncomeTax>

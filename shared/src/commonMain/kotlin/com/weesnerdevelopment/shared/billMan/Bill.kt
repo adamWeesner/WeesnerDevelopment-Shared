@@ -8,6 +8,7 @@ import com.weesnerdevelopment.shared.base.History
 import com.weesnerdevelopment.shared.base.HistoryItem
 import com.weesnerdevelopment.shared.base.OwnedItem
 import com.weesnerdevelopment.shared.currentTimeMillis
+import kotlinx.serialization.Serializable
 
 /**
  * The bill.
@@ -26,7 +27,7 @@ import com.weesnerdevelopment.shared.currentTimeMillis
  * @see OwnedItem.owner
  * @see HistoryItem.history
  */
-@Parcelize
+@Serializable
 data class Bill(
     override var id: Int? = null,
     override val owner: User,

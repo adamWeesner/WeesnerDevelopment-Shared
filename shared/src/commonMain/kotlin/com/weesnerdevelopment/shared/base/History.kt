@@ -1,9 +1,8 @@
 package com.weesnerdevelopment.shared.base
 
-import com.weesnerdevelopment.shared.Parcelable
-import com.weesnerdevelopment.shared.Parcelize
 import com.weesnerdevelopment.shared.auth.User
 import com.weesnerdevelopment.shared.currentTimeMillis
+import kotlinx.serialization.Serializable
 
 /**
  * History for any given [GenericItem].
@@ -17,7 +16,7 @@ import com.weesnerdevelopment.shared.currentTimeMillis
  * @see GenericItem.dateCreated
  * @see GenericItem.dateUpdated
  */
-@Parcelize
+@Serializable
 data class History(
     override val id: Int? = null,
     val field: String,
@@ -26,4 +25,4 @@ data class History(
     val updatedBy: User,
     override val dateCreated: Long = currentTimeMillis(),
     override val dateUpdated: Long = currentTimeMillis()
-) : GenericItem, Parcelable
+) : GenericItem

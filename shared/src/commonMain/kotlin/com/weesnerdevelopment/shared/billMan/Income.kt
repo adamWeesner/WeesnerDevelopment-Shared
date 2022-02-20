@@ -1,13 +1,12 @@
 package com.weesnerdevelopment.shared.billMan
 
-import com.weesnerdevelopment.shared.Parcelable
-import com.weesnerdevelopment.shared.Parcelize
 import com.weesnerdevelopment.shared.auth.User
 import com.weesnerdevelopment.shared.base.GenericItem
 import com.weesnerdevelopment.shared.base.History
 import com.weesnerdevelopment.shared.base.HistoryItem
 import com.weesnerdevelopment.shared.base.OwnedItem
 import com.weesnerdevelopment.shared.currentTimeMillis
+import kotlinx.serialization.Serializable
 
 /**
  * An income for the [User].
@@ -22,7 +21,7 @@ import com.weesnerdevelopment.shared.currentTimeMillis
  * @see OwnedItem.owner
  * @see HistoryItem.history
  */
-@Parcelize
+@Serializable
 data class Income(
     override var id: Int? = null,
     override val owner: User,

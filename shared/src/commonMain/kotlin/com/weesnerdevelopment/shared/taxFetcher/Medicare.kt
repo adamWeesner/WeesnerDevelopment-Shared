@@ -1,11 +1,10 @@
 package com.weesnerdevelopment.shared.taxFetcher
 
-import com.weesnerdevelopment.shared.Parcelable
-import com.weesnerdevelopment.shared.Parcelize
 import com.weesnerdevelopment.shared.base.GenericItem
 import com.weesnerdevelopment.shared.base.History
 import com.weesnerdevelopment.shared.base.HistoryItem
 import com.weesnerdevelopment.shared.currentTimeMillis
+import kotlinx.serialization.Serializable
 
 /**
  * Medicare item, this represents the data to determine how much medicare tax will be taken for a given gross income
@@ -36,7 +35,7 @@ import com.weesnerdevelopment.shared.currentTimeMillis
  * @see GenericItem.dateUpdated
  * @see HistoryItem.history
  */
-@Parcelize
+@Serializable
 data class Medicare(
     override val id: Int? = null,
     val year: Int,
@@ -46,4 +45,4 @@ data class Medicare(
     override var history: List<History>? = null,
     override val dateCreated: Long = currentTimeMillis(),
     override val dateUpdated: Long = currentTimeMillis()
-) : GenericItem, HistoryItem, Parcelable
+) : GenericItem, HistoryItem

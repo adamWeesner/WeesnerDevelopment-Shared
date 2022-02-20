@@ -1,9 +1,8 @@
 package com.weesnerdevelopment.shared.base
 
-import com.weesnerdevelopment.shared.Parcelable
-import com.weesnerdevelopment.shared.Parcelize
 import com.weesnerdevelopment.shared.auth.InvalidUserException
 import com.weesnerdevelopment.shared.toJson
+import kotlinx.serialization.Serializable
 
 /**
  * The Http status for the given network request.
@@ -11,8 +10,8 @@ import com.weesnerdevelopment.shared.toJson
  * @param code The status code of the request.
  * @param description The description of the status for the request.
  */
-@Parcelize
-data class HttpStatus(val code: Int, val description: String) : Parcelable {
+@Serializable
+data class HttpStatus(val code: Int, val description: String) {
     companion object {
         val OK = HttpStatus(200, "OK")
         val Created = HttpStatus(201, "Created")
@@ -31,12 +30,12 @@ data class HttpStatus(val code: Int, val description: String) : Parcelable {
  * @param status The [HttpStatus] of the response.
  * @param message The message of the response.
  */
-@Parcelize
-data class Response(val status: HttpStatus, val message: String?) : Parcelable {
+@Serializable
+data class Response(val status: HttpStatus, val message: String?) {
     companion object {
-        fun Ok(message: Any) = Response(HttpStatus.OK, message.toJson())
-        fun Created(message: Any) = Response(HttpStatus.Created, message.toJson())
-        fun NoContent(message: Any) = Response(HttpStatus.NoContent, message.toJson())
+        fun Ok(message: String) = Response(HttpStatus.OK, message)
+        fun Created(message: String) = Response(HttpStatus.Created, message)
+        fun NoContent(message: String) = Response(HttpStatus.NoContent, message)
         fun BadRequest(message: String) = Response(HttpStatus.BadRequest, message)
         fun NotFound(message: String) = Response(HttpStatus.NotFound, message)
         fun Conflict(message: String) = Response(HttpStatus.Conflict, message)
