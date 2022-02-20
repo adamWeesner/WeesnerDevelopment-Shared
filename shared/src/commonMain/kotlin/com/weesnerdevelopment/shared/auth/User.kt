@@ -3,6 +3,7 @@ package com.weesnerdevelopment.shared.auth
 import com.weesnerdevelopment.shared.base.GenericItem
 import com.weesnerdevelopment.shared.base.History
 import com.weesnerdevelopment.shared.base.HistoryItem
+import com.weesnerdevelopment.shared.base.UuidItem
 import com.weesnerdevelopment.shared.currentTimeMillis
 import com.weesnerdevelopment.shared.toJson
 import kotlinx.serialization.Serializable
@@ -25,7 +26,7 @@ import kotlinx.serialization.Serializable
 @Serializable
 data class User(
     override var id: Int? = null,
-    val uuid: String? = null,
+    override var uuid: String? = null,
     val name: String?,
     val email: String?,
     val photoUrl: String? = null,
@@ -34,7 +35,7 @@ data class User(
     override var history: List<History>? = null,
     override val dateCreated: Long = currentTimeMillis(),
     override val dateUpdated: Long = currentTimeMillis()
-) : GenericItem, HistoryItem, Parcelable {
+) : GenericItem, UuidItem, HistoryItem {
     /**
      * [User] as a [HashedUser].
      */

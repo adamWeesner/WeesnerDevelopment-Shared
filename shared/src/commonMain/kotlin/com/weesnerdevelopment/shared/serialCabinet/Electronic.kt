@@ -45,4 +45,4 @@ data class Electronic(
     override val dateCreated: Long = currentTimeMillis(),
     override val dateUpdated: Long = currentTimeMillis(),
     override var history: List<History>? = null
-) : GenericItem, OwnedItem, CabinetItem, PurchasedItem, ElectronicItem, HistoryItem, Parcelable
+) : GenericItem, OwnedItem, CabinetItem, PurchasedItem, ElectronicItem, HistoryItem

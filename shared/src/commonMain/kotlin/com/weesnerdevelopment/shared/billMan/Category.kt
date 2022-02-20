@@ -4,6 +4,7 @@ import com.weesnerdevelopment.shared.auth.User
 import com.weesnerdevelopment.shared.base.GenericItem
 import com.weesnerdevelopment.shared.base.History
 import com.weesnerdevelopment.shared.base.HistoryItem
+import com.weesnerdevelopment.shared.base.UuidItem
 import com.weesnerdevelopment.shared.currentTimeMillis
 import kotlinx.serialization.Serializable
 
@@ -21,9 +22,10 @@ import kotlinx.serialization.Serializable
 @Serializable
 data class Category(
     override var id: Int? = null,
-    val owner: User? = null,
+    override var uuid: String? = null,
+    val owner: String? = null,
     val name: String,
     override var history: List<History>? = null,
     override val dateCreated: Long = currentTimeMillis(),
     override val dateUpdated: Long = currentTimeMillis()
-) : GenericItem, HistoryItem, Parcelable
+) : GenericItem, UuidItem, HistoryItem

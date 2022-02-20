@@ -1,12 +1,6 @@
 package com.weesnerdevelopment.shared.billMan
 
-import com.weesnerdevelopment.shared.Parcelable
-import com.weesnerdevelopment.shared.Parcelize
-import com.weesnerdevelopment.shared.auth.User
-import com.weesnerdevelopment.shared.base.GenericItem
-import com.weesnerdevelopment.shared.base.History
-import com.weesnerdevelopment.shared.base.HistoryItem
-import com.weesnerdevelopment.shared.base.OwnedItem
+import com.weesnerdevelopment.shared.base.*
 import com.weesnerdevelopment.shared.currentTimeMillis
 import kotlinx.serialization.Serializable
 
@@ -24,9 +18,10 @@ import kotlinx.serialization.Serializable
 @Serializable
 data class Payment(
     override var id: Int? = null,
-    override var owner: User,
+    override var uuid: String? = null,
+    override var owner: String,
     var amount: String,
     override var history: List<History>? = null,
     override val dateCreated: Long = currentTimeMillis(),
     override val dateUpdated: Long = currentTimeMillis()
-) : GenericItem, OwnedItem, HistoryItem, Parcelable
+) : GenericItem, UuidItem, OwnedItem, HistoryItem

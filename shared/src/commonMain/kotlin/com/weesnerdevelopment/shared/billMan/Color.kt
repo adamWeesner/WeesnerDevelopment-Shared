@@ -3,6 +3,7 @@ package com.weesnerdevelopment.shared.billMan
 import com.weesnerdevelopment.shared.base.GenericItem
 import com.weesnerdevelopment.shared.base.History
 import com.weesnerdevelopment.shared.base.HistoryItem
+import com.weesnerdevelopment.shared.base.UuidItem
 import com.weesnerdevelopment.shared.currentTimeMillis
 import kotlinx.serialization.Serializable
 
@@ -22,6 +23,7 @@ import kotlinx.serialization.Serializable
 @Serializable
 data class Color(
     override var id: Int? = null,
+    override var uuid: String? = null,
     var red: Int,
     var green: Int,
     var blue: Int,
@@ -29,4 +31,4 @@ data class Color(
     override var history: List<History>? = null,
     override val dateCreated: Long = currentTimeMillis(),
     override val dateUpdated: Long = currentTimeMillis()
-) : GenericItem, HistoryItem, Parcelable
+) : GenericItem, UuidItem, HistoryItem
