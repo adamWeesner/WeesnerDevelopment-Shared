@@ -9,5 +9,5 @@ interface OwnedItem {
     /**
      * The [User] who's the owner of this item.
      */
-    val owner: User
+    val owner: String
 }

@@ -41,7 +41,7 @@ data class Electronic(
     override val manufactureDate: Long?,
     override val manufacturer: Manufacturer?,
     override val purchaseDate: Long?,
-    override val owner: User,
+    override val owner: String,
     override val dateCreated: Long = currentTimeMillis(),
     override val dateUpdated: Long = currentTimeMillis(),
     override var history: List<History>? = null

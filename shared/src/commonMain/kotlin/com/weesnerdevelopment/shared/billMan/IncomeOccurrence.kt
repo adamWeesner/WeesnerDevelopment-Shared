@@ -34,10 +34,8 @@ data class IncomeOccurrence(
     val sharedUsers: List<User>? = null,
     val itemId: String,
     var dueDate: Long,
-    var amountLeft: String,
     var amount: String,
     var every: String,
-    var payments: List<Payment>? = null,
     override var history: List<History>? = null,
     override val dateCreated: Long = currentTimeMillis(),
     override val dateUpdated: Long = currentTimeMillis()
