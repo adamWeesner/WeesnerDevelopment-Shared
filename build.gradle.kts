@@ -4,17 +4,17 @@ buildscript {
         google()
     }
     dependencies {
-        classpath(kotlin("gradle-plugin", version = "1.5.31"))
-        classpath("com.android.tools.build:gradle:3.6.4")
+        classpath(kotlin("gradle-plugin", version = "1.6.10"))
+        classpath("com.android.tools.build:gradle:7.0.4")
     }
 }
 
 subprojects {
     group = "com.weesnerdevelopment"
-    version = if (version != "unspecified") version else "1.6.5"
+    version = if (version != "unspecified") version else "1.6.6"
 
     repositories {
-        jcenter()
+        mavenCentral()
         google()
     }
 }
