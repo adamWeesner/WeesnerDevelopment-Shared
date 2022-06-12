@@ -1,9 +1,7 @@
 package com.weesnerdevelopment.shared
 
-import com.weesnerdevelopment.shared.base.GenericItem
-import com.weesnerdevelopment.shared.base.GenericResponse
 import com.weesnerdevelopment.shared.billMan.responses.*
-import kotlinx.serialization.PolymorphicSerializer
+import kotlinx.serialization.KSerializer
 import kotlinx.serialization.decodeFromString
 import kotlinx.serialization.encodeToString
 import kotlinx.serialization.json.Json
@@ -11,40 +9,21 @@ import kotlinx.serialization.json.JsonBuilder
 import kotlinx.serialization.modules.SerializersModule
 import kotlinx.serialization.modules.SerializersModuleBuilder
 
-internal inline fun <reified I : GenericItem, reified T : GenericResponse<I>> SerializersModuleBuilder.serializeGenericResponse() {
+
+inline fun <reified Base : Any, reified Sub : Base> SerializersModuleBuilder.poly(serializer: KSerializer<Sub>) {
     polymorphic(
-        GenericResponse::class,
-        T::class,
-        PolymorphicSerializer(T::class)
+        Base::class,
+        Sub::class,
+        serializer
     )
 }
 
 val responseModule = SerializersModule {
-    polymorphic(
-        GenericResponse::class,
-        IncomeOccurrencesResponse::class,
-        IncomeOccurrencesResponse.serializer()
-    )
-    polymorphic(
-        GenericResponse::class,
-        BillOccurrencesResponse::class,
-        BillOccurrencesResponse.serializer()
-    )
-    polymorphic(
-        GenericResponse::class,
-        BillsResponse::class,
-        BillsResponse.serializer()
-    )
-    polymorphic(
-        GenericResponse::class,
-        CategoriesResponse::class,
-        CategoriesResponse.serializer()
-    )
-    polymorphic(
-        GenericResponse::class,
-        IncomeResponse::class,
-        IncomeResponse.serializer()
-    )
+    poly(IncomeOccurrencesResponse.serializer())
+    poly(BillOccurrencesResponse.serializer())
+    poly(BillsResponse.serializer())
+    poly(CategoriesResponse.serializer())
+    poly(IncomeResponse.serializer())
 }
 
 fun json(jsonParams: JsonBuilder.() -> Unit) = Json {

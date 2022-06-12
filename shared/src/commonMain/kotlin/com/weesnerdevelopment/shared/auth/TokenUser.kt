@@ -26,31 +26,37 @@ import kotlinx.serialization.Serializable
  * @see TokenItem.refreshToken
  */
 @Serializable
-data class User(
+data class TokenUser(
     override var id: Int? = null,
     override var uuid: String? = null,
     val email: String?,
     val photoUrl: String? = null,
-    var username: String? = null,
-    var password: String? = null,
+    val username: String? = null,
+    val password: String? = null,
+    override val authToken: String,
+    override val refreshToken: String,
+    override val expiresIn: Long,
     override var history: List<History>? = null,
     override val dateCreated: Long = currentTimeMillis(),
     override val dateUpdated: Long = currentTimeMillis()
-) : GenericItem, UuidItem, HistoryItem {
+) : GenericItem, UuidItem, HistoryItem, TokenItem {
     /**
-     * [User] as a [HashedUser].
+     * [TokenUser] as a [HashedUser].
      */
     fun asHashed() =
         if (username != null && password != null) HashedUser(username!!, password!!)
         else null
 
     /**
-     * [User] with the sensitive fields set to null.
+     * [TokenUser] with the sensitive fields set to null.
      */
-    fun redacted() = User(
+    fun redacted() = TokenUser(
         uuid = uuid,
         email = email,
         username = username,
+        authToken = authToken,
+        expiresIn = 0L,
+        refreshToken = "",
         dateCreated = dateCreated,
         dateUpdated = dateUpdated
     ).toJson()
